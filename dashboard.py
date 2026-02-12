@@ -31,3 +31,8 @@ else:
     st.success("✅ Device Operating Normally")
 
 st.write("Network Communication:", network)
+import streamlit as st
+
+st.title("My App")
+
+
