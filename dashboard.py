@@ -10,7 +10,7 @@ trojan = st.checkbox("Activate Hidden Trojan")
 power, network = simulate_device(trojan_active=trojan)
 
 # Firmware check
-current_hash = calculate_hash(r"C:\Users\welcome\OneDrive\Desktop\GridGuardAI\firmware.bin")
+current_hash = calculate_hash("firmware.bin")
 st.write("Firmware Hash:", current_hash)
 
 # Power graph
@@ -34,5 +34,6 @@ st.write("Network Communication:", network)
 import streamlit as st
 
 st.title("My App")
+
 
 
