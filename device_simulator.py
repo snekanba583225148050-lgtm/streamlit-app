@@ -1,20 +1,21 @@
 import numpy as np
-import time
 import random
 
-def generate_power_data(normal=True):
-    if normal:
-        return np.random.normal(50, 2, 100)
-    else:
-        return np.random.normal(70, 8, 100)
-
-def generate_network_activity(normal=True):
-    if normal:
-        return "Trusted Server"
-    else:
-        return "Unknown External IP"
-
 def simulate_device(trojan_active=False):
-    power = generate_power_data(normal=not trojan_active)
-    network = generate_network_activity(normal=not trojan_active)
-    return power, network
+    power_usage = []
+    network_activity = []
+
+    for i in range(100):
+        # Normal behaviour
+        power = np.random.normal(500, 20)
+        network = np.random.normal(50, 5)
+
+        # If trojan is active, create abnormal spikes
+        if trojan_active and random.random() > 0.7:
+            power += random.randint(150, 300)
+            network += random.randint(30, 80)
+
+        power_usage.append(power)
+        network_activity.append(network)
+
+    return power_usage, network_activity
